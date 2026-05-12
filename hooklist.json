@@ -4619,6 +4619,41 @@
   },
   {
     "hook": {
+      "address": "0x47dc5827e85f8b63a0b79dfe92e13463eb680440",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "PokemonPegHook",
+      "description": "Pok\u00e9mon Peg ($pPEG) v4 hook. Mints NFT fragment metadata (one Pok\u00e9mon per fragment) on every buy, proportional to pPEG received. Resolves the recipient address from hookData (20- or 32-byte) or falls back to tx.origin for contract callers. Calls start() on the token on first liquidity addition and randomises the RNG seed on each afterSwap.",
+      "deployer": "0xE20B8921058B116758cfdE5552967C67e70F7b47",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": true,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0x4832d5009a234a08a28060196a40bfeb35d6c044",
       "chain": "ethereum",
       "chainId": 1,
@@ -5069,6 +5104,41 @@
       "upgradeable": false,
       "requiresCustomSwapData": false,
       "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0x7b9d30379e446b53e135ce060f38bc2b3be8a040",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "HookdRandomHook",
+      "description": "Records a rolling keccak256 seed per ERC3232 token after each swap, combining swap parameters and block context. ERC3232 tokens query this seed for on-chain randomness during token generation. Pool initialization is factory-gated to prevent unauthorized price setting.",
+      "deployer": "",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": true,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": true,
       "swapAccess": "none"
     }
   },
