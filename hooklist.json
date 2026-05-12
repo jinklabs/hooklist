@@ -176,6 +176,41 @@
   },
   {
     "hook": {
+      "address": "0x62076c1cb0ea57acd2353ff45226a1fb1e6100c4",
+      "chain": "arbitrum",
+      "chainId": 42161,
+      "name": "The Pool",
+      "description": "Uniswap v4 dynamic fee hook that captures 25 bps per swap (scaling 1.5\u00d7 in volatile blocks) and routes 80% of fees back to in-range LPs via poolManager.donate(), with the remaining 20% to treasury. Pairs with an ERC-4626 vault for auto-compounding LP yield. No emissions token.",
+      "deployer": "0xe5f5Ef79b3DFF47EcDf7842645222e43AD0ed080",
+      "verifiedSource": true,
+      "auditUrl": "https://github.com/emilianosolazzi/The-Pool/blob/main/audits/the-pool_audit_2026-04-25.md"
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0x9B21E1cdD975E58F714Fd1Bd5a803198d5520088",
       "chain": "arbitrum",
       "chainId": 42161,
@@ -806,6 +841,41 @@
   },
   {
     "hook": {
+      "address": "0x22266a74902ef7546ab80156539e7a349ad20040",
+      "chain": "base",
+      "chainId": 8453,
+      "name": "BpegHook",
+      "description": "An afterSwap hook that syncs NFT metadata with token balance. \nWhen a user buys BPEG tokens, the hook mints NFT metadata \nproportional to their integer balance. When they sell, it burns \nNFT metadata accordingly. Uses tx.origin to identify the end user.",
+      "deployer": "0x0F5162779F6bfc140B12e7392A7770f839910299",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0x23321f11a6d44fd1ab790044fdfde5758c902fdc",
       "chain": "base",
       "chainId": 8453,
@@ -836,6 +906,41 @@
       "upgradeable": false,
       "requiresCustomSwapData": true,
       "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0x23ab2e6d4ab0c5f872567098671f1ffb46fd2500",
+      "chain": "base",
+      "chainId": 8453,
+      "name": "TELxIncentiveHook",
+      "description": "Tracks LP positions and fee accruals in an external PositionRegistry to support off-chain incentive/reward distribution. Liquidity callbacks are restricted to an authorized position manager address; no swap logic is implemented.",
+      "deployer": "",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": true,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": true,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": true,
+      "beforeSwap": false,
+      "afterSwap": false,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": true,
       "swapAccess": "none"
     }
   },
@@ -2379,6 +2484,41 @@
   },
   {
     "hook": {
+      "address": "0x994f0eefe7a9857698218205b721466ef0038ac0",
+      "chain": "base",
+      "chainId": 8453,
+      "name": "SwayHookJIT",
+      "description": "JIT-LP hook for token launches with engine-based dynamic pricing (PowerCurve / Momentum / Hybrid). Hook holds 100% of token supply at launch and provides liquidity just-in-time during swaps via beforeSwap/afterSwap callbacks. Designed to look like a standard V4 pool to off-chain quoters.",
+      "deployer": "0x2bc2063bb53AF0Da20608364d47DE2BAC546EA0E",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": true,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": true,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": true,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "governance"
+    }
+  },
+  {
+    "hook": {
       "address": "0x9d11f9505ca92f4b6983c1285d1ac0aaff7ec0c0",
       "chain": "base",
       "chainId": 8453,
@@ -3569,6 +3709,76 @@
   },
   {
     "hook": {
+      "address": "0xfe6947cd46a7e8f068a6b6ca804fb986feda8040",
+      "chain": "base",
+      "chainId": 8453,
+      "name": "BpegHook",
+      "description": "An afterSwap hook for the BPEG DN-404 token on Base. After each swap, the hook syncs NFT metadata counts with the user's BPEG token balance using tx.origin to identify the end user. Buying BPEG mints NFT metadata proportional to integer balance. Selling BPEG burns NFT metadata accordingly. vanillaSwap: false",
+      "deployer": "0x0F5162779F6bfc140B12e7392A7770f839910299",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0xfee99b847f90d7a7f87e273097b72e33d3490440",
+      "chain": "base",
+      "chainId": 8453,
+      "name": "BpegHook",
+      "description": "An afterSwap and afterAddLiquidity hook for the BPEG DN-404 token on Base mainnet. afterAddLiquidity sets the pool address on the token contract on first liquidity add. afterSwap syncs NFT metadata count with the user BPEG balance using tx.origin: buying BPEG mints NFT metadata proportional to integer balance, selling burns accordingly. Wallet-to-wallet transfers move NFT metadata alongside tokens. vanillaSwap: false",
+      "deployer": "0x0F5162779F6bfc140B12e7392A7770f839910299",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": true,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0xff74be9d3596ea7a33bb4983dd7906fb34135040",
       "chain": "base",
       "chainId": 8453,
@@ -3701,6 +3911,41 @@
     },
     "properties": {
       "dynamicFee": true,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0x771575a57e0a5b87646047622bc66903984000cc",
+      "chain": "bnb",
+      "chainId": 56,
+      "name": "LaunchlyBNBHook",
+      "description": "The hook is used to get the fixed percent fee on every swap to launchaly app admin wallet and send the fee to ClaimRevenue contract (A custom contract for split the fee to creator )",
+      "deployer": "0xBb12B9eD187F7d527B3bD534Eff93922dc94dEC6",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
       "upgradeable": false,
       "requiresCustomSwapData": false,
       "vanillaSwap": false,
@@ -3954,6 +4199,41 @@
   },
   {
     "hook": {
+      "address": "0x0089938dc53258d2bbbb666043abe812a3c18440",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "0XPAIN HOOK",
+      "description": "PokemonPegHook is a Uniswap v4 hook that powers PokemonPeg ($pPEG), an art-coin where every buy mints a unique          on-chain pixel-art NFT fragment to the trader.\n                                                                                                                          Hook permissions: afterAddLiquidity + afterSwap.\n\n  Mechanism: on each ETH\u2192pPEG swap, the hook resolves the real recipient (via hookData 20b/32b, with tx.origin fallback\n  for EOAs) and mints a deterministic ...",
+      "deployer": "0xD626EB019226A7B1b7a7F112a378B790A47C4568",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": true,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0x00bbc6fc07342cf80d14b60695cf0e1aa8de00cc",
       "chain": "ethereum",
       "chainId": 1,
@@ -4129,6 +4409,76 @@
   },
   {
     "hook": {
+      "address": "0x31ac1bba3496628a50d4df734bc2c3e82eeb8440",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "BtcPegHook",
+      "description": "Mints $bPEG fragments to swap recipients on the ETH/bPEG v4 pool. Calls token.start when first liquidity is added (afterAddLiquidity). Resolves the real EOA recipient on each swap (afterSwap) via hookData (20-byte address override) or tx.origin fallback for routers, then calls BtcPeg.mintFragmentsFor to give the buyer one on-chain fragment per whole bPEG bought. Read-only on the swap path otherwise (no fee, no delta).\n\nToken: 0x520d912430dd5728143851034ABbc692686B8d92 (BtcPeg, verified)\nHook:...",
+      "deployer": "",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": true,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0x34052720fd88197718251765fe03611d740c00cc",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "PAMHook",
+      "description": "ETH-side fee collector for the Perpetual Asteroid Machine token; converts fees to ASTEROID and distributes to PAM holders",
+      "deployer": "0x66Ea2577c8AD16251B762efcfB461eB569332254",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0x3a3a9a072ab438335a52E0cF064F7ec91D824080",
       "chain": "ethereum",
       "chainId": 1,
@@ -4261,6 +4611,41 @@
     },
     "properties": {
       "dynamicFee": true,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0x4832d5009a234a08a28060196a40bfeb35d6c044",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "UniLandHook",
+      "description": "UniLand is a 10,000-plot lottery meme coin powered by a Uniswap v4 hook. Each whole $ULand token (1e18) maps 1:1 to a numbered plot in [1..10000] via a lazy Fisher-Yates shuffle inside the ERC20. On every sell, the hook's afterSwap takes 3% of the output ETH, draws a random plot id, and forwards the ETH directly to that plot's owner. Free plots fall back to the treasury. Buys are tax-free. Hook permissions: afterSwap | afterSwapReturnDelta (bottom-14 = 0x44).\n\nSite: https://unilandhooks.fun\nX...",
+      "deployer": "0x893582aC23341A07C277B0F026D04d7De6F58678",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
       "upgradeable": false,
       "requiresCustomSwapData": false,
       "vanillaSwap": false,
@@ -4794,6 +5179,41 @@
   },
   {
     "hook": {
+      "address": "0x8bd422134164f74023308a22ba991ae0412900cc",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "LaunchHook",
+      "description": "LaunchHook is the fee-collection hook used by the Tickr launchpad. It charges a flat 2% fee on every swap (taken from input ETH on buys via beforeSwap and from output ETH on sells via afterSwap) and splits it 50/50 between the token's creator \u2014 the holder of the corresponding TickrOwner NFT \u2014 and the platform. Fee constants and the creator/platform split are immutable; the only governor action is a one-time setFactory(...) binding.",
+      "deployer": "0x9155F76A8349129abd66406cBbBC7D286E5bb031",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0x924e5C44c3b82C2C0Ba231Cd0De7B581180E1bC0",
       "chain": "ethereum",
       "chainId": 1,
@@ -4821,6 +5241,76 @@
     },
     "properties": {
       "dynamicFee": true,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0x98fa6468c65ec0100cb92c62dc6109236c130440",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "UCatHook",
+      "description": "Custom v4 hook for UniCat \u2014 a production v4 hook combined with an ERC-721 NFT collection (888 hard cap) and staking miner on Ethereum mainnet.\n\nHook capabilities:\n- afterAddLiquidity: one-time initialization trigger that calls token.start() on the first liquidity event involving the UCat token\n- afterSwap: re-randomizes a global seed used as entropy for on-chain SVG NFT generation when wallets first receive UCat\n\nIntegrates with:\n- UCat ERC-20 (0x36608E64D5391bF40486EC81886308a6b8bC06a5)\n- UC...",
+      "deployer": "0x0d6ad47259Ab540bEBC78199357FF2a0488F68aa",
+      "verifiedSource": true,
+      "auditUrl": "https://github.com/Thanattt/unicat/blob/main/AUDIT.md"
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": true,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": true,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0x990a91c744d50fe05a123a80f5a5a6a966f28088",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "DeployerTaxHook",
+      "description": "Charges a configurable buy/sell tax (up to 15% hardcap) on exact-input swaps for a single token pool by returning a BeforeSwapDelta, accumulating fees as ERC6909 claim tokens on the PoolManager and draining them to a developer wallet via drainFees().",
+      "deployer": "0x2D3daDF3817bc4e76494Ec52Da48D8978142E6bc",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": false,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
       "upgradeable": false,
       "requiresCustomSwapData": false,
       "vanillaSwap": false,
@@ -5280,6 +5770,41 @@
       "requiresCustomSwapData": false,
       "vanillaSwap": false,
       "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0xe48b1ce2fc24365d29bfb4081ac9924965cb58c8",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "Hook",
+      "description": "Prices swaps on an exponential bonding curve (K \u00d7 (1 -\n   e^(-eth/S))) instead of AMM, charging a dual-phase tax \u2014 0.2% with 1 ETH buy \n  cap in Phase 1, 0.5% uncapped in Phase 2. Locked taxes auto-release as rewards\n   to staked NFT holders when circulating supply drops below target. Uses \n  beforeSwapReturnDelta for custom delta accounting and blocks all LP additions \n  via beforeAddLiquidity.",
+      "deployer": "",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": true,
+      "beforeAddLiquidity": true,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": true,
+      "vanillaSwap": false,
+      "swapAccess": "governance"
     }
   },
   {
