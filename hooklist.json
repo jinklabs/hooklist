@@ -1261,6 +1261,41 @@
   },
   {
     "hook": {
+      "address": "0x440f4148e323de5d8196582628971bfff802e8cc",
+      "chain": "base",
+      "chainId": 8453,
+      "name": "LayerMeme Dynamic Fee Hook v2 (Base)",
+      "description": "A Uniswap v4 hook used by the LAYERMEME token launch platform. It dynamically adjusts LP fees based on volatility, collects a protocol fee on launched token swaps, and supports optional MEV protection modules and per-pool extensions via custom swap data. The source is verified on BaseScan and the hook is deployed on Base mainnet.",
+      "deployer": "0x5f05Daf1312d62Da92497edC6F3e39E265999103",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": true,
+      "afterInitialize": false,
+      "beforeAddLiquidity": true,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": true,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0x4519e2b040ff1b64fa03abe2aef0bc99d7cceaa8",
       "chain": "base",
       "chainId": 8453,
@@ -2408,6 +2443,41 @@
       "dynamicFee": false,
       "upgradeable": false,
       "requiresCustomSwapData": true,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0x8f29bd5c8429730fa4c46e6295c4e679ededd0cc",
+      "chain": "base",
+      "chainId": 8453,
+      "name": "Aegis",
+      "description": "AegisHook charges dynamic swap fees set per-swap by DynamicFeeManager, collects additional hook fees on each swap, and periodically reinvests them as full-range liquidity via AegisEngine. It manages oracle observation cardinality growth and notifies LimitOrderManager and OracleManager after each swap.",
+      "deployer": "",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": true,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": true,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
       "vanillaSwap": false,
       "swapAccess": "none"
     }
@@ -3670,6 +3740,41 @@
       "requiresCustomSwapData": false,
       "vanillaSwap": false,
       "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0xe87be9bc8e462de016760aa83bac56d608836aa8",
+      "chain": "base",
+      "chainId": 8453,
+      "name": "RehypHook",
+      "description": "A custom bonding-curve AMM hook that owns all pool liquidity internally, blocking external LP deposits and donations. Swaps exchange WETH/USDC/GHO for REHYP tokens using reserve-based pricing; excess assets are deposited into Aave V3 to earn yield, which can be harvested to increase reserves and burn REHYP supply.",
+      "deployer": "0x7F4C1A4ED0be550d4D18B5FdB78a2104A674D6e8",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": true,
+      "afterInitialize": false,
+      "beforeAddLiquidity": true,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": true,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": false,
+      "beforeDonate": true,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": false,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "allowlist"
     }
   },
   {
@@ -5529,6 +5634,41 @@
   },
   {
     "hook": {
+      "address": "0x8f29bd5c8429730fa4c46e6295c4e679ededd0cc",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "Aegis",
+      "description": "AegisHook applies dynamic swap fees sourced from an external DynamicFeeManager, updates a TWAP oracle on each swap, charges a configurable hook fee on every trade (taken as a BeforeSwapDelta/AfterSwapDelta), and periodically reinvests accumulated fees as full-range liquidity via an AegisEngine on a 1-hour cooldown.",
+      "deployer": "",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": false,
+      "afterInitialize": true,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": false,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": true,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": true,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": true,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
       "address": "0x924e5C44c3b82C2C0Ba231Cd0De7B581180E1bC0",
       "chain": "ethereum",
       "chainId": 1,
@@ -6084,6 +6224,41 @@
       "upgradeable": false,
       "requiresCustomSwapData": false,
       "vanillaSwap": true,
+      "swapAccess": "none"
+    }
+  },
+  {
+    "hook": {
+      "address": "0xdee7a2ffa963f82facbb12a4e3e8909e4a51a444",
+      "chain": "ethereum",
+      "chainId": 1,
+      "name": "TTTHook",
+      "description": "Uniswap v4 hook for TTT/ETH pools launched by the TenThousandTokens factory. Applies a decaying buy fee (99%\u21921% over 98 blocks from launch) and a flat 1% sell fee; buy fees are converted to ETH via an internal pool swap and split between a FeeSplitter and a per-token buyback sink in afterSwap.",
+      "deployer": "",
+      "verifiedSource": true,
+      "auditUrl": ""
+    },
+    "flags": {
+      "beforeInitialize": true,
+      "afterInitialize": false,
+      "beforeAddLiquidity": false,
+      "afterAddLiquidity": true,
+      "beforeRemoveLiquidity": false,
+      "afterRemoveLiquidity": false,
+      "beforeSwap": false,
+      "afterSwap": true,
+      "beforeDonate": false,
+      "afterDonate": false,
+      "beforeSwapReturnsDelta": false,
+      "afterSwapReturnsDelta": true,
+      "afterAddLiquidityReturnsDelta": false,
+      "afterRemoveLiquidityReturnsDelta": false
+    },
+    "properties": {
+      "dynamicFee": false,
+      "upgradeable": false,
+      "requiresCustomSwapData": false,
+      "vanillaSwap": false,
       "swapAccess": "none"
     }
   },
